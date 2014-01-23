@@ -10,7 +10,7 @@ class Exception extends Problem
     public function __construct(\Exception $exception, $includeStackTrace = false)
     {
         $this->problemType = "/exception";
-        $this->title = $exception->getMessage();
+        $this->title = get_class($exception);
         $this->detail = $includeStackTrace ? $exception->getTraceAsString() : $exception->getMessage();
 
         switch(true) {
